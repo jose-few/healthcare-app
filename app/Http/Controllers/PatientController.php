@@ -3,64 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
-use App\Http\Requests\StorePatientRequest;
-use App\Http\Requests\UpdatePatientRequest;
 
 class PatientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the index of all patients.
      */
     public function index()
     {
-        //
+        return view('patient.index');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new patient.
      */
     public function create()
     {
-        //
+        return view('patient.create');
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePatientRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Patient $patient)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified patient.
      */
     public function edit(Patient $patient)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePatientRequest $request, Patient $patient)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Patient $patient)
-    {
-        //
+        return view('patient.edit', ['patient' => $patient]);
     }
 }

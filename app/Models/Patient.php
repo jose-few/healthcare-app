@@ -10,6 +10,8 @@ class Patient extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Get the doctor that this patient is assigned to.
      *
