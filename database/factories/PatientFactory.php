@@ -29,7 +29,7 @@ class PatientFactory extends Factory
             'county' => fake()->county(),
             'postcode' => 'L32 2AT',
             'dob' => fake()->date(),
-            'sex' => fake()->numberBetween(1, 5),
+            'sex' => fake()->numberBetween(1, 4),
             'deleted_at' => null,
             'created_at' => now(),
             'updated_at' => now(),

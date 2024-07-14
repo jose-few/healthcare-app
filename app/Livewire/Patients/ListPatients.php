@@ -27,6 +27,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Forms\Components\TextInput;
+use Filament\Support\Enums\FontFamily;
 
 class ListPatients extends Component implements HasForms, HasTable
 {
@@ -52,13 +53,15 @@ class ListPatients extends Component implements HasForms, HasTable
                 TextColumn::make('phone')
                     ->label('Mobile No.'),
                 TextColumn::make('nhs_no')
-                    ->label('NHS No.'),
+                    ->label('NHS No.')
+                    ->fontFamily(FontFamily::Mono),
             ])
             ->defaultSort('last_name')
             ->persistSortInSession()
             ->actions([
                 Action::make('edit')
                     ->url(fn (Patient $record): string => route('patients.edit', $record))
+                    ->color('info')
                     ->openUrlInNewTab(),
 
                 Action::make('delete')
@@ -76,6 +79,7 @@ class ListPatients extends Component implements HasForms, HasTable
                 BulkActionGroup::make([
                     BulkAction::make('delete')
                         ->requiresConfirmation()
+                        ->color('danger')
                         ->action(fn (Collection $records) => $records->each->delete())
                 ])
                     ->label('Bulk actions'),
