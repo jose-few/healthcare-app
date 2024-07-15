@@ -34,6 +34,12 @@ class ListPatients extends Component implements HasForms, HasTable
     use InteractsWithForms;
     use InteractsWithTable;
 
+    /**
+     * @param Table $table
+     * @return Table
+     *
+     * Our table for listing Patients in the standard user view.
+     */
     public function table(Table $table): Table
     {
         return $table
@@ -58,6 +64,9 @@ class ListPatients extends Component implements HasForms, HasTable
             ])
             ->defaultSort('last_name')
             ->persistSortInSession()
+            /**
+             * Edit and delete buttons on each individual row.
+             */
             ->actions([
                 Action::make('edit')
                     ->url(fn (Patient $record): string => route('patients.edit', $record))
@@ -68,6 +77,9 @@ class ListPatients extends Component implements HasForms, HasTable
                     ->color('danger')
                     ->action(fn (Patient $record) => $record->delete()),
             ])
+            /**
+             * Allow us to create new patients, or delete a selection in bulk.
+             */
             ->headerActions([
                 Action::make('create')
                     ->label('New')

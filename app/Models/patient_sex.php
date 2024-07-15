@@ -9,6 +9,12 @@ class patient_sex extends Model
 {
     protected $table = 'patient_sexes';
 
+    /**
+     * @return HasMany
+     *
+     * Fetch a collection of patients with this sex.
+     */
+
     public function patients(): HasMany
     {
         return $this->hasMany(Patient::class, 'sex');

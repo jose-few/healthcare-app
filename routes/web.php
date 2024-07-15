@@ -34,6 +34,9 @@ Route::middleware([
         Route::get('/patients/create', 'create')->name('patients.create');
         /**
          * Form to edit existing patient.
+         *
+         * {patient} is the ID no. of the patient, and that patients data is loaded into the form
+         * when the form is loaded.
          */
         Route::get('/patients/{patient}/edit', 'edit')->name('patients.edit');
     });

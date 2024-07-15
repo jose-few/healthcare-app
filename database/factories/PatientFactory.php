@@ -16,11 +16,22 @@ class PatientFactory extends Factory
      */
     public function definition(): array
     {
+        /**
+         * Select a patients sex as an int from 1-5
+         * Used for a join on patients_sexes table.
+         *
+         * If 4 ('Prefer to self describe') is chosen, populate the self description.
+         *
+         * Create a first name and last name used for building a believable email.
+         */
         $sex = fake()->numberBetween(1, 5);
         $first_name = fake()->firstName();
         $last_name = fake()->lastName();
         $domain = fake()->freeEmailDomain();
 
+        /**
+         * doctor_id no. 1 is reserved as a sysadmin ID.
+         */
         return [
             'doctor_id' => fake()->numberBetween(2, 3),
             'first_name' => $first_name,

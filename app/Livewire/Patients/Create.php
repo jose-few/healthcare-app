@@ -24,6 +24,10 @@ class Create extends Component implements HasForms
 
     public function form(Form $form): Form
     {
+        /**
+         * Build our form using reusable form components from the PatientResource.php file.
+         */
+
         return $form
             ->schema([
                 PatientResource::buildContactSection(),

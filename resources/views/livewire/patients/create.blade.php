@@ -1,3 +1,6 @@
+{{--
+    Render the form for creating new patients.
+--}}
 <div class="mx-auto py-5 px-6">
     <form wire:submit="create">
         {{ $this->form }}

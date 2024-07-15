@@ -31,6 +31,9 @@ class Edit extends Component implements HasForms
 
     public function form(Form $form): Form
     {
+        /**
+         * Build an edit form using components built in PatientResource.php.
+         */
         return $form
             ->schema([
                 PatientResource::buildContactSection(),

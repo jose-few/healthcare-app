@@ -1,3 +1,6 @@
+{{--
+    Render the form for editing existing patients.
+--}}
 <div class="mx-auto py-5 px-6">
     <form wire:submit="save">
         {{ $this->form }}

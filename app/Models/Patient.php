@@ -12,6 +12,10 @@ class Patient extends Model
 {
     use HasFactory;
 
+    /**
+     * @var array
+     * Allow mass assignment
+     */
     protected $guarded = [];
 
     /**
@@ -24,6 +28,11 @@ class Patient extends Model
         return $this->belongsTo(User::class, 'doctor_id');
     }
 
+    /**
+     * @return BelongsTo
+     *
+     * Fetch the patients sex from the patient_sex relationship.
+     */
     public function sex(): BelongsTo
     {
         return $this->belongsTo(patient_sex::class, 'sex');

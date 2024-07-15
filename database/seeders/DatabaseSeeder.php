@@ -15,10 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        /**
+         * Create three users, one as a sysadmin, and two as doctors.
+         */
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@healthcare.com',
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('admin123'),
             'is_admin' => true,
             'is_doctor' => false,
         ]);
@@ -26,7 +29,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'John Doector',
             'email' => 'john.doector@healthcare.com',
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('password'),
             'is_admin' => false,
             'is_doctor' => true,
         ]);
@@ -34,7 +37,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Jane Doector',
             'email' => 'jane.doector@healthcare.com',
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('password'),
             'is_admin' => false,
             'is_doctor' => true,
         ]);

@@ -90,6 +90,12 @@ class User extends Authenticatable implements FilamentUser
         return $this->HasMany(Patient::class, 'doctor_id');
     }
 
+    /**
+     * @param Panel $panel
+     * @return bool
+     *
+     * Allow us to authenticate users for the admin panel, by requiring they have the is_admin flag set on their model.
+     */
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->is_admin;

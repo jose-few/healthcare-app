@@ -140,6 +140,11 @@ class PatientResource extends Resource
         ];
     }
 
+    /**
+     * @return Section
+     *
+     * Reusable form section for Contact Details.
+     */
     public static function buildContactSection(): Section
     {
         return Section::make('Contact Information')
@@ -188,6 +193,15 @@ class PatientResource extends Resource
             ]);
     }
 
+    /**
+     * @param bool $new
+     * @param Patient|null $patient
+     * @return Section
+     *
+     * Reusable form section for Medical Details.
+     *
+     * If this is a new patient, check that the NHS number is unique.
+     */
     public static function buildMedicalSection(bool $new = true, ?Patient $patient = null): Section
     {
         $ignore = null;
