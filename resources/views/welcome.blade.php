@@ -12,6 +12,13 @@
                                 class="w-full mx-auto p-3 mt-4 bg-indigo-600 text-white rounded shadow block text-center"                            >
                                 Dashboard
                             </a>
+                            @if(Auth::user()->is_admin)
+                                <a
+                                    href="{{ url('/admin') }}"
+                                    class="w-full mx-auto p-3 mt-4 bg-indigo-600 text-white rounded shadow block text-center"                            >
+                                    Admin Controls
+                                </a>
+                            @endif
                         @else
                             <h1 class="text-2xl text-left mb-12 font-thin">Welcome</h1>
                             <a

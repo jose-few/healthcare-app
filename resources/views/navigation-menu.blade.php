@@ -114,6 +114,12 @@
                                 </x-dropdown-link>
                             @endif
 
+                            @if(Auth::user()->is_admin)
+                                <x-dropdown-link href="/admin">
+                                    {{ __('Admin Controls') }}
+                                </x-dropdown-link>
+                            @endif
+
                             <div class="border-t border-gray-200"></div>
 
                             <!-- Authentication -->

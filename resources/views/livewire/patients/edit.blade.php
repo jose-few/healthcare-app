@@ -2,7 +2,7 @@
     <form wire:submit="save">
         {{ $this->form }}
 
-        <x-button class="mt-4"> Submit </x-button>
+        <x-button class="mt-4"> Save </x-button>
     </form>
 
     <x-filament-actions::modals />

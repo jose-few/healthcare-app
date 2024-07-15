@@ -61,8 +61,7 @@ class ListPatients extends Component implements HasForms, HasTable
             ->actions([
                 Action::make('edit')
                     ->url(fn (Patient $record): string => route('patients.edit', $record))
-                    ->color('info')
-                    ->openUrlInNewTab(),
+                    ->color('info'),
 
                 Action::make('delete')
                     ->requiresConfirmation()

@@ -10,8 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Panel;
+use Filament\Models\Contracts\FilamentUser;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -28,6 +30,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_doctor',
+        'is_admin',
+    ];
+
+    /**
+     * Ensure we can create users as admins and doctors.
+     *
+     * @var string[]
+     */
+    protected $casts = [
+        'is_doctor' => 'boolean',
+        'is_admin' => 'boolean',
     ];
 
     /**
@@ -61,6 +75,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
+            'is_doctor' => 'boolean',
         ];
     }
 
@@ -72,5 +88,10 @@ class User extends Authenticatable
     public function patients(): HasMany
     {
         return $this->HasMany(Patient::class, 'doctor_id');
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->is_admin;
     }
 }
