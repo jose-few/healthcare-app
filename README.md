@@ -22,7 +22,8 @@ Run `composer install`
 
 Create a copy of the included `.env.example` file, called `.env`: `cp .env.example .env`
 
-The database settings in `.env` will already be configured, but please ensure the `DB_USERNAME` and `DB_PASSWORD` are set as required access.
+The database settings in `.env` will already be configured, but please ensure the `DB_USERNAME` and `DB_PASSWORD` are
+set as required for access.
 
 Run `php artisan key:generate`
 
